@@ -1,14 +1,6 @@
 <?php
 session_start();
 require('fpdf.php');
-	$db_hostname = 'localhost';
-		// web server hostname
-	$db_database = 'remsdb';
-		// database used 
-	$db_username = 'root';
-		// phpmyadmin username
-	$db_password = '';
-		// phpmyadmin password
 		
 	$con = mysql_connect("$db_hostname","$db_username","$db_password");
 				if (!$con)

@@ -1,0 +1,509 @@
+@font-face {
+    font-family: ubuntu;
+    src: url('../fonts/Ubuntu-R.ttf');
+}
+body
+{
+	font-family: ubuntu;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #f0f0f0;
+}
+.wrapper-background
+{
+	background-color: #f0f0f0; 
+	margin-bottom: 3em; 
+	margin-top: 2em; padding:1em;
+
+}
+.instruction
+{
+	margin-top:5em;
+}
+.search .form-control
+{
+	background-color: transparent;
+}
+.section
+{
+	text-align: center;
+}
+.heading
+{
+	height: 2em;
+	background-image: url('../image/ubuntuClean.jpg');
+	color: #f0f0f0;
+}
+.time
+{
+	background-color: transparent;
+	color:#333333;
+	width:auto;
+	padding: .1em;
+	float: right;
+}
+.center
+{
+	text-align: center;
+}
+
+.time
+{
+	height: 100%;
+	text-align: right;
+	padding-top: .3em;
+}
+header
+{
+	background-color: transparent;
+}
+.img-responsive
+ {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.cent
+{
+	margin-top: 1em;
+	margin-right: 0em;
+}
+
+.centro
+{	
+	font-size: 1.3em;
+	text-align: center;
+	padding-right: 5em;
+}
+
+.companyTitle
+{
+	font-size: 2.5em;
+	font-family: ubuntu;
+	color: #333333;
+	line-height: .75em;
+	font-weight: bold;
+	padding-top: .3em;
+}		
+.companySlogan
+{
+	font-size: 1.5em;
+	color: #333333;
+	font-family: ubuntu;
+	font-weight: bold;
+	line-height: 1em;
+}			
+h1
+{
+	font-size: 5em;
+	margin-top: 0em;
+	line-height: 1em;
+	font-family: ubuntu
+}
+.footer
+{
+	height:auto;
+	width: 100%;
+	background-color: #333333;
+	position: relative;
+	color: #c0c0c0;
+	text-align: left;
+}
+
+.footerContent
+{
+	font-family: ubuntu;
+	font-size: 12px;
+	color: #c0c0c0;
+	text-align: center;
+
+}
+
+a:link
+{
+	color:#333333;
+	text-decoration: none;
+}
+#link
+{
+	text-decoration: none;
+}
+/* visited link */
+a:visited
+{
+	color: #333333;
+}
+/* mouse over link */
+a:hover 
+{
+	color: #333333;
+	text-decoration: underline;
+}
+/* selected link */
+a:active
+{
+	color: #333333;
+}
+h2, h4
+{
+	font-family: ubuntu;
+}
+
+
+ul li:hover ul
+{
+    display: block; /* display the dropdown */
+}
+
+
+.nav2
+{
+  background-color: transparent;
+  border-width: 0em;
+  width: 100%;
+  padding-right:1.5em;
+}
+.nav2 .navbar-nav > li > a:hover
+{
+    background-color: #333333;
+    color: white;    
+}
+.breadcrumbs
+{
+	 color: #468847;
+  	background-color: #dff0d8;
+ 	border-color: #d6e9c6;
+}
+.breadcrumb
+{
+	color: #3a87ad;
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+}
+.tablehead
+{
+	color: #eee;
+  	background-color: #333333;
+  
+}
+.top
+{
+	float: right;
+	margin-bottom: 2em;
+}
+.navbar-default 
+{
+  background-color: #333333;
+  border-width: 0em;
+  width: 100%;
+  padding-right:1.5em;
+  border-radius: 0em;
+  z-index: 3;
+}
+.navbar-default .navbar-nav > li > a 
+{
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover
+{
+    background-image: url('../image/ubuntuClean.jpg');
+    color: #333333;    
+}
+.navbar-default .navbar-nav > li > a:focus
+{
+    background-image: url('../image/ubuntuClean.jpg');
+    color: #333333;
+}
+
+#gender
+{
+	padding-top: 2em;
+}
+#dob
+{
+	padding-top: .5em;
+}
+
+@media(max-width: 460px){
+	.navbar-default .navbar-header .navbar-nav .this
+	{
+		display: none;
+	}
+	.navbar-default .navbar-header .navbar-nav .thisOne
+	{
+		display: block;
+	}
+}
+
+@media(min-width: 461px){
+	.navbar-default .navbar-header .navbar-nav .thisOne
+	{
+		display: none;
+	}
+}
+@media(min-width: 992px){
+	.navbar-default .navbar-header .navbar-nav .thisOne
+	{
+		display: block;
+	}
+}
+
+@media(max-width: 991px){
+	.navbar-default .navbar-collapse .navbar-nav .that
+	{
+		display: block !important;
+	}
+	ul li:hover ul
+	{
+   	 display: none; /* display the dropdown */
+   	 background-image: url('../image/ubuntuClean.jpg');
+    color: #333333;
+
+   	}
+}
+
+ul
+{
+    list-style-type: none;
+}
+.aktibo
+{
+	background-color:#5cb85c;
+	
+}
+
+
+
+/*applicationform*/
+#basic, #personal,  #demographic, #insurance, #family, #education, #work, #character, #other, #position, #qualities, #thankYou, 
+#iApply, #his, #send, #emailConfirmed, #login, #loginError, #forgotPassword, #logout, #lang,
+#indexHome, #indexAbout, #indexNews, #indexJob, #indexContact, #developers, #attempt3
+{
+	display: none;
+}
+
+.img 
+{
+	width:150px;
+	height: 150px;
+	
+}
+h4
+{
+	text-align: center;
+}
+.modal-body 
+{
+    max-height:350px; 
+    overflow-y: auto;
+}
+
+
+
+
+/* Base styles for the element that has a tooltip */
+		[data-tooltip],
+		.tooltip {
+		  position: fixed;
+		  cursor: pointer;
+		}
+
+		/* Base styles for the entire tooltip */
+		[data-tooltip]:before,
+		[data-tooltip]:after,
+		.tooltip:before,
+		.tooltip:after {
+		  position: absolute;
+		  visibility: hidden;
+		  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+		  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+		  opacity: 0;
+		  -webkit-transition: 
+		      opacity 0.2s ease-in-out,
+		        visibility 0.2s ease-in-out,
+		        -webkit-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+		    -moz-transition:    
+		        opacity 0.2s ease-in-out,
+		        visibility 0.2s ease-in-out,
+		        -moz-transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+		    transition:         
+		        opacity 0.2s ease-in-out,
+		        visibility 0.2s ease-in-out,
+		        transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+		  -webkit-transform: translate3d(0, 0, 0);
+		  -moz-transform:    translate3d(0, 0, 0);
+		  transform:         translate3d(0, 0, 0);
+		  pointer-events: none;
+		}
+
+		/* Show the entire tooltip on hover and focus */
+		[data-tooltip]:hover:before,
+		[data-tooltip]:hover:after,
+		[data-tooltip]:focus:before,
+		[data-tooltip]:focus:after,
+		.tooltip:hover:before,
+		.tooltip:hover:after,
+		.tooltip:focus:before,
+		.tooltip:focus:after {
+		  visibility: visible;
+		  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+		  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+		  opacity: 1;
+		}
+
+		/* Base styles for the tooltip's directional arrow */
+		.tooltip:before,
+		[data-tooltip]:before {
+		  z-index: 1001;
+		  border: 6px solid transparent;
+		  background: transparent;
+		  content: "";
+		}
+
+		/* Base styles for the tooltip's content area */
+		.tooltip:after,
+		[data-tooltip]:after {
+		  z-index: 1000;
+		  padding: 8px;
+		  width: 160px;
+		  background-color: #000;
+		  background-color: hsla(0, 0%, 20%, 0.9);
+		  color: #fff;
+		  content: attr(data-tooltip);
+		  font-size: 14px;
+		  line-height: 1.2;
+		}
+
+		/* Directions */
+
+		/* Top (default) */
+		[data-tooltip]:before,
+		[data-tooltip]:after,
+		.tooltip:before,
+		.tooltip:after,
+		.tooltip-top:before,
+		.tooltip-top:after {
+		  bottom: 100%;
+		  left: 50%;
+		}
+
+		[data-tooltip]:before,
+		.tooltip:before,
+		.tooltip-top:before {
+		  margin-left: -6px;
+		  margin-bottom: -12px;
+		  border-top-color: #000;
+		  border-top-color: hsla(0, 0%, 20%, 0.9);
+		}
+
+		/* Horizontally align top/bottom tooltips */
+		[data-tooltip]:after,
+		.tooltip:after,
+		.tooltip-top:after {
+		  margin-left: -80px;
+		}
+
+		[data-tooltip]:hover:before,
+		[data-tooltip]:hover:after,
+		[data-tooltip]:focus:before,
+		[data-tooltip]:focus:after,
+		.tooltip:hover:before,
+		.tooltip:hover:after,
+		.tooltip:focus:before,
+		.tooltip:focus:after,
+		.tooltip-top:hover:before,
+		.tooltip-top:hover:after,
+		.tooltip-top:focus:before,
+		.tooltip-top:focus:after {
+		  -webkit-transform: translateY(-12px);
+		  -moz-transform:    translateY(-12px);
+		  transform:         translateY(-12px); 
+		}
+
+		/* Left */
+		.tooltip-left:before,
+		.tooltip-left:after {
+		  right: 100%;
+		  bottom: 50%;
+		  left: auto;
+		}
+
+		.tooltip-left:before {
+		  margin-left: 0;
+		  margin-right: -12px;
+		  margin-bottom: 0;
+		  border-top-color: transparent;
+		  border-left-color: #000;
+		  border-left-color: hsla(0, 0%, 20%, 0.9);
+		}
+
+		.tooltip-left:hover:before,
+		.tooltip-left:hover:after,
+		.tooltip-left:focus:before,
+		.tooltip-left:focus:after {
+		  -webkit-transform: translateX(-12px);
+		  -moz-transform:    translateX(-12px);
+		  transform:         translateX(-12px); 
+		}
+
+		/* Bottom */
+		.tooltip-bottom:before,
+		.tooltip-bottom:after {
+		  top: 100%;
+		  bottom: auto;
+		  left: 50%;
+		}
+
+		.tooltip-bottom:before {
+		  margin-top: -12px;
+		  margin-bottom: 0;
+		  border-top-color: transparent;
+		  border-bottom-color: #000;
+		  border-bottom-color: hsla(0, 0%, 20%, 0.9);
+		}
+
+		.tooltip-bottom:hover:before,
+		.tooltip-bottom:hover:after,
+		.tooltip-bottom:focus:before,
+		.tooltip-bottom:focus:after {
+		  -webkit-transform: translateY(12px);
+		  -moz-transform:    translateY(12px);
+		  transform:         translateY(12px); 
+		}
+
+		/* Right */
+		.tooltip-right:before,
+		.tooltip-right:after {
+		  bottom: 50%;
+		  left: 100%;
+		}
+
+		.tooltip-right:before {
+		  margin-bottom: 0;
+		  margin-left: -12px;
+		  border-top-color: transparent;
+		  border-right-color: #000;
+		  border-right-color: hsla(0, 0%, 20%, 0.9);
+		}
+
+		.tooltip-right:hover:before,
+		.tooltip-right:hover:after,
+		.tooltip-right:focus:before,
+		.tooltip-right:focus:after {
+		  -webkit-transform: translateX(12px);
+		  -moz-transform:    translateX(12px);
+		  transform:         translateX(12px); 
+		}
+
+		/* Move directional arrows down a bit for left/right tooltips */
+		.tooltip-left:before,
+		.tooltip-right:before {
+		  top: 3px;
+		}
+
+		/* Vertically center tooltip content for left/right tooltips */
+		.tooltip-left:after,
+		.tooltip-right:after {
+		  margin-left: 0;
+		  margin-bottom: -16px;
+		}

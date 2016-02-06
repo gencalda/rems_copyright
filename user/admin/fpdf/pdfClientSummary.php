@@ -3,16 +3,6 @@ session_start();
 $root = realpath(dirname(__FILE__) . '/../../..');
 include($root . '/config/connection.php');
 require('mysql_table.php');
-
-
-$db_hostname = 'localhost';
-		// web server hostname
-	$db_database = 'remsdb';
-		// database used 
-	$db_username = 'root';
-		// phpmyadmin username
-	$db_password = '';
-		// phpmyadmin password
 		
 	$con = mysql_connect("$db_hostname","$db_username","$db_password");
 				if (!$con)

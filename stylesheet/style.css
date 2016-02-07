@@ -507,3 +507,7 @@ h4
 		  margin-left: 0;
 		  margin-bottom: -16px;
 		}
+
+.alert-info{
+	text-align: center;
+}

@@ -48,10 +48,10 @@
 					<strong><h3>Reports</h3></strong>
 					<hr>
 						<ul>
-							<li><a href="<?php echo $reports; ?>clientSummary.php?token=<?php echo $repo; ?>" style="color: #c0c0c0;">Client</a></li>
-				            <li><a href="<?php echo $reports; ?>applicantSummary.php?token=<?php echo $repo; ?>" style="color: #c0c0c0;">Applicant</a></li>
-				            <li><a href="<?php echo $reports; ?>endorsementSummary.php?token=<?php echo $repo; ?>" style="color: #c0c0c0;">Endorsement</a></li>
-				            <li><a href="<?php echo $reports; ?>employeeSummary.php?token=<?php echo $repo; ?>" style="color: #c0c0c0;">Employee</a></li>
+							<li><a href="<?php echo $reports; ?>clientReports.php?token=<?php echo $repo; ?>" style="color: #c0c0c0;">Client</a></li>
+				            <li><a href="<?php echo $reports; ?>applicantReports.php?token=<?php echo $repo; ?>" style="color: #c0c0c0;">Applicant</a></li>
+				            <li><a href="<?php echo $reports; ?>endorsementReports.php?token=<?php echo $repo; ?>" style="color: #c0c0c0;">Endorsement</a></li>
+				            <li><a href="<?php echo $reports; ?>employeeReports.php?token=<?php echo $repo; ?>" style="color: #c0c0c0;">Employee</a></li>
 						</ul>
 
 					<strong><h3>Queries</h3></strong>

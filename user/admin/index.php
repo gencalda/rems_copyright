@@ -25,7 +25,7 @@
 					<div class="alert alert-success well-lg">
 					    <div class="clearfix">
 					        <div class="col-md-2">
-					            <img src="../../image/strauss.jpg" class="img-circle" height="85px" width="" ="85px" alt="" />
+					            <img src="../../image/Strauss.jpg" class="img-circle" height="85px" width="" ="85px" alt="" />
 					        </div>
 
 					        <div class="col-md-7">

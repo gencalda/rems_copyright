@@ -1,8 +1,5 @@
 <?php
 	ob_start();
-	/*include('guestLink.php');
-	include ('../../config/connection.php');
-	include ('../../include/header.php');*/
 	$root = realpath(dirname(__FILE__) . '/../..');
 	include($root . '/include/link.php');
 	include($root . '/include/header.php');
@@ -22,23 +19,6 @@
 	}
 ?>
 
-
-		
-		<!--	<nav class="navbar nav2">
-				<div class="col-md-2 pull-right" style="background-color: #f0f0f0; width: auto; margin-right:3.25em; padding-left:1em; padding-right:1em;">
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="index.php?tab=home" id="btnHome"><span class="glyphicon glyphicon-home"></span> Home</a>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav">
-						<li>
-							<a href="logIn.php?action=login" id="btnLog"><span class="glyphicon glyphicon-log-in"> </span> Log In</a>
-						</li>
-					</ul>
-			  	</div>
-			</nav> -->
-			
 
 	<?php
 		if($tab == md5('login'))

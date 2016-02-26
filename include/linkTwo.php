@@ -2,26 +2,26 @@
 	$root = realpath(dirname(__FILE__) . '/..');
 	include($root . '/config/connection.php');
 	
-		if (!$con)
+		if (!$mysqli)
 		{
 			die('Could not connect: ' . mysql_error()); 
 		}
-		mysql_select_db("remsdb", $con); 
+		mysqli_select_db($mysqli,"remsdb"); 
 		
-		$query1= mysql_query("SELECT * FROM tbl_picture WHERE picId = 1");
+		$query1= mysqli_query($mysqli, "SELECT * FROM tbl_picture WHERE picId = 1");
 		// display query results
 		
-		while($row = mysql_fetch_array($query1))
+		while($row = mysqli_fetch_array($query1))
 		{
 			
 				$filename = $row['filename'];
 	
 		}
 	
-		$query = mysql_query("SELECT * FROM tbl_picture WHERE picId = 2");
+		$query = mysqli_query($mysqli, "SELECT * FROM tbl_picture WHERE picId = 2");
 		// display query results
 		
-		while($row = mysql_fetch_array($query))
+		while($row = mysqli_fetch_array($query))
 		{
 			//$id = $row['picId'];
 			$bgimage = $row['filename'];

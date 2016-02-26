@@ -37,7 +37,7 @@
 			        e.preventDefault();
 			        if(x < max_fields){ //max input box allowed
 			            x++; //text box increment
-			         $(wrapper).append('<div class="form-group col-md-12"><legend style="padding:0.75em;"></legend><div class="form-group col-md-3"> <label>Last Name: * </label> <input type="text" class="form-control" name="name_basicLastName[]" value="" maxlength="250"  id="name_basicLastName[]" /></div><div class="form-group col-md-3"><label>First Name: * </label><input type="text" class="form-control" name="name_basicFirstName[]" value="" maxlength="250"  id="name_basicFirstName[]"/></div><div class="form-group col-md-3"><label>Middle Name:  </label><input type="text" class="form-control" name="name_middleName[]" value="" maxlength="250"  id="name_middleName[]" /></div><div class="form-group col-md-3"><label>Name Ext.:  </label><input type="text" class="form-control" name="name_extName[]" value="" maxlength="250"  id="name_extName[]" /></div><div class="form-group col-md-6"><label>Position of Contact Person: </label><input type="text" name="name_basicPosition[]" class="form-control" value="" maxlength="250" id="name_basicPosition[]" /></div><div class="form-group  col-md-6"><label>Email Address: </label><input type="email" autofocus="autofocus"class="form-control" name="name_basicEmail[]" value="" maxlength="75" placeholder="your.email@server.com"  id="name_basicEmail[]"/></div><div class="form-group col-md-11"></div><a style="text-decoration:underline"; href="#" class="remove_field">Remove</a></div>'); //add input box
+			         $(wrapper).append('<div class="form-group col-md-12"><legend style="padding:0.75em;"></legend><div class="form-group col-md-3"> <label>Last Name: * </label> <input type="text" class="form-control" name="name_basicLastName[]" value="" maxlength="250"  id="name_basicLastName[]" required /></div><div class="form-group col-md-3"><label>First Name: * </label><input type="text" class="form-control" name="name_basicFirstName[]" value="" maxlength="250"  id="name_basicFirstName[]" required /></div><div class="form-group col-md-3"><label>Middle Name:  </label><input type="text" class="form-control" name="name_middleName[]" value="" maxlength="250"  id="name_middleName[]" /></div><div class="form-group col-md-3"><label>Name Ext.:  </label><input type="text" class="form-control" name="name_extName[]" value="" maxlength="250"  id="name_extName[]" /></div><div class="form-group col-md-6"><label>Position of Contact Person: *</label><input type="text" name="name_basicPosition[]" class="form-control" value="" maxlength="250" id="name_basicPosition[]" required /></div><div class="form-group  col-md-6"><label>Email Address: *</label><input type="email" autofocus="autofocus"class="form-control" name="name_basicEmail[]" value="" maxlength="75" placeholder="your.email@server.com"  id="name_basicEmail[]" required/></div><div class="form-group col-md-11"></div><a style="text-decoration:underline"; href="#" class="remove_field">Remove</a></div>'); //add input box
 			       
 				   }
 			    });
@@ -118,6 +118,7 @@
 											value='' 
 											maxlength="250"  
 											id="name_basicLastName[]"
+											required
 									/>
 							</div>
 
@@ -129,6 +130,7 @@
 											value='' 
 											maxlength="250"  
 											id="name_basicFirstName[]"
+											required
 									/>
 							</div>
 
@@ -157,19 +159,20 @@
 
 
 							<div class="form-group col-md-6">
-									<label>Position of Contact Person: </label>
+									<label>Position of Contact Person: *</label>
 									<input type="text" 
 											class="form-control" 
 											name="name_basicPosition[]" 
 											value='' 
 											maxlength="250" 
 											id="name_basicPosition[]"
+											required
 									/>
 							</div>
 							
 							
 							<div class="form-group  col-md-6">
-									<label>Email Address: </label>
+									<label>Email Address: *</label>
 									<input type="email" 
 											autofocus="autofocus"
 											class="form-control" 
@@ -178,6 +181,7 @@
 											maxlength="75" 
 											placeholder="username@email.com"  
 											id="name_basicEmail[]"
+											required
 									/>
 									
 							</div>

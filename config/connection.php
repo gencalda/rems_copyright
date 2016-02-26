@@ -1,11 +1,11 @@
 <?php
 	// connection for REMS
 	
-	$db_hostname = '192.168.22.20';
+	$db_hostname = 'localhost';
 		// web server hostname
 	$db_database = 'remsdb';
 		// database used 
-	$db_username = 'groot';
+	$db_username = 'root';
 		// phpmyadmin username
 	$db_password = '';
 		// phpmyadmin password

@@ -44,7 +44,7 @@
 	function enableTextbox(){
 						document.getElementById("submitAddClient").disabled = false;
 						
-						if( (document.getElementById("name_searchBusinessType").value=="general")  || ((document.getElementById("name_searchBusinessType").value=="others") && (document.getElementById("name_BusinessTypeOthers").value!="")) || ( (document.getElementById("name_searchBusinessType").value=="others") && (document.getElementById("name_BusinessTypeOthers").value==""))) 
+						if( (document.getElementById("name_searchBusinessType").value=="general")  || ( (document.getElementById("name_searchBusinessType").value=="others") && (document.getElementById("name_BusinessTypeOthers").value==""))) 
 						{
 							alert("Please enter the Type of Business.");
 						}

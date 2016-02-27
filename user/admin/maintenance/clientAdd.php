@@ -25,7 +25,7 @@
 		        e.preventDefault();
 		        if(x < max_fields){ //max input box allowed
 		            x++; //text box increment
-		         $(wrapper).append('<div class="form-group col-md-12"><div class="form-group col-md-5"><select type="device" class="form-control"  id="name_contactDevice[]" name="name_contactDevice[]"> <option value="" selected>Select Device</option><option value="Landline">Landline</option> <option value="Mobile">Mobile</option> <option value="Fax">Fax</option> </select></div><div class="form-group col-md-6"><input type="text" class="form-control"  name="name_contactNumber[]" id="name_contactNumber[]"/></div><a href="#" class="remove_field">Remove</a></div>'); //add input box
+		         $(wrapper).append('<div class="form-group col-md-12"><div class="form-group col-md-5"><select type="device" class="form-control"  id="name_contactDevice[]" name="name_contactDevice[]" required> <option value="" selected>Select Device</option><option value="Landline">Landline</option> <option value="Mobile">Mobile</option> <option value="Fax">Fax</option> </select></div><div class="form-group col-md-6"><input type="text" class="form-control"  name="name_contactNumber[]" id="name_contactNumber[]"  required /></div><a href="#" class="remove_field">Remove</a></div>'); //add input box
 		       
 			   }
 		    });
@@ -40,10 +40,17 @@
 	</script>
 	
 	<script type = "text/javascript">
+	
 	function enableTextbox(){
 						document.getElementById("submitAddClient").disabled = false;
-						document.formAddClient.submit();
+						
+						if( (document.getElementById("name_searchBusinessType").value=="general")  || ((document.getElementById("name_searchBusinessType").value=="others") && (document.getElementById("name_BusinessTypeOthers").value!="")) || ( (document.getElementById("name_searchBusinessType").value=="others") && (document.getElementById("name_BusinessTypeOthers").value==""))) 
+						{
+							alert("Please enter the Type of Business.");
 						}
+						
+						}//function
+						
 	</script>
 
 
@@ -92,9 +99,10 @@
 								<input type="text"
 										class="form-control" 
 										name="name_clientName" 
+										id="name_clientName"
 										value='' 
 										maxlength="250" 										
-										
+										required
 								/>
 							</div>
 
@@ -130,9 +138,9 @@
 											mysql_select_db("$db_database", $con);
 											$result = mysql_query("SELECT * FROM tbl_type_of_business WHERE typeOfBusinessStatus = 1");
 																		
-											echo "<select type='position' class='form-control' id='name_searchBusinessType' name='name_searchBusinessType' onchange = 'enableTextboxBusinessType()'>";
+											echo "<select class='form-control' id='name_searchBusinessType' name='name_searchBusinessType' onchange = 'enableTextboxBusinessType()' required aria-required='true' >";
 								?>
-								<option value="General" selected>Select Type of Business</option>
+								<option value="general" >Select Type of Business</option>
 								<!--<option value="any">Any</option>-->
 								<?php		
 									while ($row = mysql_fetch_array($result))
@@ -158,6 +166,7 @@
 											style="margin-top:.2em;"
 											placeholder="Others, please specify"
 											style="text-transform: capitalize;"
+											required
 											disabled = true
 									/>
 							</div>
@@ -238,6 +247,7 @@
 											id="name_addStreet"
 											style="text-transform: capitalize;" 
 											title=""
+											required
 									/>
 								</div>
 
@@ -264,6 +274,7 @@
 											id="name_addBrgy"
 											style="text-transform: capitalize;" 
 											title=""
+											required
 									/>
 								</div>
 
@@ -291,6 +302,7 @@
 											id="name_addCity"
 											style="text-transform: capitalize;" 
 											title=""
+											required
 									/>
 								</div>
 
@@ -304,6 +316,7 @@
 											id="name_addProvince"
 											style="text-transform: capitalize;" 
 											title=""
+											required
 									/>
 								</div>
 
@@ -317,6 +330,7 @@
 											id="name_addCountry"
 											style="text-transform: capitalize;" 
 											title=""
+											required
 									/>
 
 								</div>
@@ -331,6 +345,7 @@
 											id="name_addZipCode"
 											style="text-transform: capitalize;" 
 											title=""
+											required
 									/>
 								</div>
 
@@ -350,6 +365,7 @@
 										<input type="text" 
 												class="form-control" 
 												name="name_clientEmail" 
+												id="name_clientEmail"
 												value='' 
 												maxlength="250"   
 												required
@@ -367,8 +383,9 @@
 											<select type="position" 
 													class="form-control"  
 													id="name_contactDevice[]"
-													name="name_contactDevice[]">
-													<option value="Landline" selected>Landline</option>
+													name="name_contactDevice[]" required >
+													 <option value="" selected>Select Device</option>
+													<option value="Landline">Landline</option>
 													<option value="Mobile">Mobile</option>
 													<option value="Fax">Fax</option>
 											 </select>
@@ -382,9 +399,8 @@
 												id="name_contactNumber[]"
 												value='' 
 												maxlength="250"   
-												required
 												placeholder=""
-												 
+												 required
 										/>
 									</div>
 										

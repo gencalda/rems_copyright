@@ -110,9 +110,14 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 					
 				
 				$jobLanguages = array();
+				$jobLanguagesPercent = array();
+				
 				$jobLanguagesSame = array();
 				$jobLanguagesDiff = array();
+				
+				
 				$jobQualities = array();
+				$jobQualitiesPercent = array();
 				
 				$tempAge = 0;
 				$tempHeight = 0;
@@ -126,8 +131,6 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 				$jobReligionPercentage = 0;
 				$jobNationalityPercentage = 0;
 				$jobExpectedSalaryPercentage = 0;
-				$jobLanguagesPercentage = 0;
-				$jobQualitiesPercentage =0;
 				
 				// ---------------------------------------------------
 				
@@ -243,6 +246,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 					$jobExpectedSalaryPercentage  = $rowJob['jobQualiPercent'];
 					}
 					
+					/*
 					if($rowJob['jobQualiType']=='Language')
 					{
 					$jobLanguagesPercentage  = $rowJob['jobQualiPercent'];
@@ -252,6 +256,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 					{
 					$jobQualitiesPercentage  = $rowJob['jobQualiPercent'];
 					}
+					*/
 					
 				}//while
 				// ------------------------------------------------------------
@@ -535,6 +540,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 									while($rowJobLanguages = mysql_fetch_array($resultJobLanguages)) 
 									{
 										$jobLanguages[$ctr] = $rowJobLanguages['jobQualiDescription'];
+										$jobLanguagesPercent[$ctr] = $rowJobLanguages['jobQualiPercent'];
 										$ctr++;
 									}
 									
@@ -592,7 +598,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 											echo"<td>$appLanguagesSame[$ctr]</td>";
 											echo"<td>$appLanguagesSame[$ctr]</td>";
 											echo"<td> <span class='glyphicon glyphicon-ok'></span></td>";
-											echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobLanguagesPercentage%</td>";
+											echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobLanguagesPercent[$ctr]%</td>";
 											echo "</tr>";
 											$ctr++;
 										}
@@ -668,7 +674,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 													
 													if (($appLanguages[$ctr]!='-------') && ($jobLanguages[$ctr]!='-------'))
 													{
-													echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobLanguagesPercentage%</td>";
+													echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobLanguagesPercent[$ctr]%</td>";
 													}
 													else
 													{
@@ -690,7 +696,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 													echo"<td></td>";
 														if (($appLanguages[$ctr]!='-------') && ($jobLanguages[$ctr]!='-------'))
 													{
-													echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobLanguagesPercentage%</td>";
+													echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobLanguagesPercent[$ctr]%</td>";
 													}
 													else
 													{
@@ -738,6 +744,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 									while($rowJobQualities = mysql_fetch_array($resultJobQualities)) 
 									{
 										$jobQualities[$ctr] = $rowJobQualities['jobQualiDescription'];
+										$jobQualitiesPercent[$ctr] =  $rowJobQualities['jobQualiPercent'];
 										$ctr++;
 									}
 									
@@ -795,7 +802,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 											echo"<td>$appQualitiesSame[$ctr]</td>";
 											echo"<td>$appQualitiesSame[$ctr]</td>";
 											echo"<td> <span class='glyphicon glyphicon-ok'></span></td>";
-											echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobQualitiesPercentage%</td>";
+											echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobQualitiesPercent[$ctr]%</td>";
 											echo "</tr>";
 											$ctr++;
 										}
@@ -892,7 +899,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 													echo"<td></td>";
 													if (($appQualities[$ctr]!='-------') && ($jobQualities[$ctr]!='-------'))
 													{
-													echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobQualitiesPercentage%</td>";
+													echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobQualitiesPercent[$ctr]%</td>";
 													}
 													else
 													{
@@ -915,7 +922,7 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 													
 													if (($appQualities[$ctr]!='-------') && ($jobQualities[$ctr]!='-------'))
 													{
-													echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobQualitiesPercentage%</td>";
+													echo"<td>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$jobQualitiesPercent[$ctr]%</td>";
 													}
 													else
 													{

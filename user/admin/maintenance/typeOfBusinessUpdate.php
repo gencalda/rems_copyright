@@ -46,10 +46,13 @@
 				</div>
 
 				<fieldset class="col-md-12">
-					<legend>Update Type of Business</legend>
+				
+					<div class="form-group col-md-8  col-md-offset-2">
+						<legend>Update Type of Business</legend>
+					</div>
 
 					<form name="formDropdown" method="GET" action="#">
-						<div class="form-group col-md-10">
+						<div class="form-group col-md-8  col-md-offset-2">
 							<?php
 								echo "<input type='hidden' name='token' value='$main' />";
 								$typeID = "";
@@ -117,7 +120,7 @@
 										maxlength="15"   
 								/>
 				
-					<div class="form-group col-md-12">
+					<div class="form-group col-md-8  col-md-offset-2">
 						<label>Type of Business: * </label>
 						<input type="text" 
 								class="form-control" 
@@ -127,7 +130,7 @@
 						/>
 					</div>
 
-					<div class="form-group col-md-12">
+					<div class="form-group col-md-8 col-md-offset-2">
 						<label>Description: </label>
 						<textarea class="form-control" 
 								name="businessDescription" 
@@ -139,19 +142,7 @@
 					</div>
 				
 
-				<div class="form-group col-md-2 col-md-offset-4">				
-					<button type="reset" 
-							class="btn btn-danger btn-md btn-block"
-							name ="reset" 
-							tabindex="-1" 
-							style="margin-top: 2em; ">
-							Clear &nbsp;
-						 <span class="glyphicon glyphicon-remove"></span>
-					</button>
-				</div>
-
-
-				<div class="form-group col-md-2">
+				<div class="form-group col-md-2 col-md-offset-5">
 					<button type="submit" 
 							class="btn btn-primary btn-md btn-block"
 							name ="submit" 

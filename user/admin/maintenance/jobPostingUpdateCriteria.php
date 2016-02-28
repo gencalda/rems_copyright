@@ -7,7 +7,8 @@
 ?>
 
 	<script type="text/javascript">  
-	 
+
+ 
 	function doCalc(form) {  
 			 var ctr = 0;
 			  form.criteria_percentageLeft.value = "100";
@@ -167,9 +168,10 @@
 			  }
 			  
 			  form.criteria_percentageLeft.value = form.criteria_percentageLeft.value+"%";
+			  
 	}//function  
 	
-	function validation() {
+	function validation(form) {
 
 		if (document.getElementById('criteria_percentageLeft').value != "0%")
 		{
@@ -177,6 +179,7 @@
 			return false;
 		}
 		
+		doCalc(form);
 		
 	}// validation
 
@@ -297,26 +300,44 @@
 				
 				if ($rowJob['jobQualiType']=='Age To')
 				{
-				$jobAgeTo = $rowJob['jobQualiDescription'];
-				$jobAgeToPercent = $rowJob['jobQualiPercent'];
+					$jobAgeTo = $rowJob['jobQualiDescription'];
+					$jobAgeToPercent = $rowJob['jobQualiPercent'];
+					if ( (is_null($jobAgeToPercent)) || ($jobAgeToPercent=="") )
+						{
+							$jobAgeToPercent = 0;
+						}
+					
 				}
 				
 				if ($rowJob['jobQualiType']=='Gender')
 				{
-				$jobGender = $rowJob['jobQualiDescription'];
-				$jobGenderPercent =  $rowJob['jobQualiPercent'];
+					$jobGender = $rowJob['jobQualiDescription'];
+					$jobGenderPercent =  $rowJob['jobQualiPercent'];
+					if ( (is_null($jobGenderPercent)) || ($jobGenderPercent=="")  )
+						{
+							$jobGenderPercent = 0;
+						}
+					
 				}
 				
 				if ($rowJob['jobQualiType']=='Civil Status')
 				{
-				$jobCivilStatus = $rowJob['jobQualiDescription'];
-				$jobCivilStatusPercent =  $rowJob['jobQualiPercent'];
+					$jobCivilStatus = $rowJob['jobQualiDescription'];
+					$jobCivilStatusPercent =  $rowJob['jobQualiPercent'];
+					if ( (is_null($jobCivilStatusPercent)) || ($jobCivilStatusPercent=="") )
+						{
+							$jobCivilStatusPercent = 0;
+						}
 				}
 				
 				if ($rowJob['jobQualiType']=='Height')
 				{
-				$jobHeight =  $rowJob['jobQualiDescription'];
-				$jobHeightPercent =  $rowJob['jobQualiPercent'];
+					$jobHeight =  $rowJob['jobQualiDescription'];
+					$jobHeightPercent =  $rowJob['jobQualiPercent'];
+					if ( (is_null($jobHeightPercent)) || ($jobHeightPercent=="") )
+						{
+							$jobHeightPercent = 0;
+						}
 				}
 				
 				if ($rowJob['jobQualiType']=='Height From')
@@ -327,8 +348,12 @@
 				
 				if ($rowJob['jobQualiType']=='Weight')
 				{
-				$jobWeight =  $rowJob['jobQualiDescription'];
-				$jobWeightPercent =  $rowJob['jobQualiPercent'];
+					$jobWeight =  $rowJob['jobQualiDescription'];
+					$jobWeightPercent =  $rowJob['jobQualiPercent'];
+					if ( (is_null($jobWeightPercent)) || ($jobWeightPercent=="") )
+						{
+							$jobWeightPercent = 0;
+						}
 				}
 				
 				if ($rowJob['jobQualiType']=='Weight From')
@@ -339,20 +364,32 @@
 				
 				if ($rowJob['jobQualiType']=='Religion')
 				{
-				$jobReligion = $rowJob['jobQualiDescription'];
-				$jobReligionPercent =  $rowJob['jobQualiPercent'];
+					$jobReligion = $rowJob['jobQualiDescription'];
+					$jobReligionPercent =  $rowJob['jobQualiPercent'];
+					if ( (is_null($jobReligionPercent)) || ($jobReligionPercent=="") )
+						{
+							$jobReligionPercent = 0;
+						}
 				}
 				
 				if ($rowJob['jobQualiType']=='Nationality')
 				{
-				$jobNationality = $rowJob['jobQualiDescription'];
-				$jobNationalityPercent =  $rowJob['jobQualiPercent'];
+					$jobNationality = $rowJob['jobQualiDescription'];
+					$jobNationalityPercent =  $rowJob['jobQualiPercent'];
+					if ( (is_null($jobNationalityPercent)) || ($jobNationalityPercent=="") )
+						{
+							$jobNationalityPercent = 0;
+						}
 				}
 				
 				if($rowJob['jobQualiType']=='Expected Salary')
 				{
 				$jobExpectedSalary = $rowJob['jobQualiDescription'];
 				$jobExpectedSalaryPercent = $rowJob['jobQualiPercent'];
+					if ( (is_null($jobExpectedSalaryPercent)) || ($jobExpectedSalaryPercent=="") )
+						{
+							$jobExpectedSalaryPercent = 0;
+						}
 				}
 				
 			}//while
@@ -362,7 +399,9 @@
 			
 	?>
 <div class="container-fluid">
-	<form method="POST" action="../../../config/updateJobCriteria.php" onSubmit="return validation();">
+	<form name="formCriteriaUpdate" method="POST" action="../../../config/updateJobCriteria.php" onSubmit="return validation(this.form);" >
+
+		
 		<div class="col-md-12" style="background-color: #f0f0f0; margin-bottom: 8em; margin-top: 3em; padding:1em;">
 		
 			<h2>Set the Criteria for Pairing</h2>
@@ -495,7 +534,7 @@
 				
 				<div class="form-group col-md-3">
 					<label>Expected Monthly Salary:</label>
-					<h5><?php echo"$jobExpectedSalary"; ?></h5>
+					<h5>Php <?php echo"$jobExpectedSalary"; ?></h5>
 				</div>
 				
 				<div class="form-group col-md-2">
@@ -732,6 +771,10 @@
 											while($row = mysql_fetch_array($result)) 
 											{	
 												$languagePercent =  $row['jobQualiPercent'];
+												if ( (is_null($languagePercent)) || ($languagePercent=="") )
+												{
+													$languagePercent = 0;
+												}
 											}											
 											
 										?>
@@ -837,6 +880,10 @@
 											while($row = mysql_fetch_array($result)) 
 											{	
 												$qualityPercent =  $row['jobQualiPercent'];
+												if ( (is_null($qualityPercent)) || ($qualityPercent=="") )
+												{
+													$qualityPercent = 0;
+												}
 											}	
 										
 										
@@ -953,9 +1000,8 @@
 				class="form-control" 
 				name="criteria_percentageLeft" 
 				id="criteria_percentageLeft"
-				value='0%'
+				value=''
 				maxlength="5" 
-				placeholder="Percentage"
 				disabled
 			/>
 	</div>

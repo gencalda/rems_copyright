@@ -420,7 +420,7 @@
 				
 				<div class="form-group col-md-3">
 					<label>Expected Monthly Salary:</label>
-					<h5><?php echo"$jobExpectedSalary"; ?></h5>
+					<h5>Php <?php echo"$jobExpectedSalary"; ?></h5>
 				</div>
 				
 				<div class="form-group col-md-2">

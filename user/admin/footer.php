@@ -69,6 +69,7 @@
 					<hr>
 						<ul>
 							 <li><a href="<?php echo $utilities; ?>settings.php?token=<?php echo $util; ?>" style="color: #c0c0c0;">Settings</a></li>
+							 <li><a href="<?php echo $utilities; ?>webContents.php?token=<?php echo $util; ?>" style="color: #c0c0c0;">Web Content</a></li>
 						</ul>
 				<br /><br />
 					<strong><h3>Developers</h3></strong>

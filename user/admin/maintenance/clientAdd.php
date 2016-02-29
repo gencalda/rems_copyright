@@ -41,12 +41,13 @@
 	
 	<script type = "text/javascript">
 	
-	function enableTextbox(){
+	function addClientValidation(){
 						document.getElementById("submitAddClient").disabled = false;
 						
 						if( (document.getElementById("name_searchBusinessType").value=="general")  || ( (document.getElementById("name_searchBusinessType").value=="others") && (document.getElementById("name_BusinessTypeOthers").value==""))) 
 						{
 							alert("Please enter the Type of Business.");
+							return false;
 						}
 						
 						}//function
@@ -88,7 +89,7 @@
 				Fields with asterisk (*) are required. </h4> 		
 			<br />
 			<div class='container-fluid content'>
-					<form name="formAddClient" method="POST" action="../../../config/clientInsert.php">
+					<form name="formAddClient" method="POST" action="../../../config/clientInsert.php" onsubmit=" return addClientValidation()">
 						<div class="form-group col-md-10">
 						</div>
 
@@ -457,8 +458,7 @@
 										class="btn btn-primary btn-md btn-block"
 										name ="submitAddClient" 
 										id="submitAddClient"
-										style="margin-top: 2em; "
-										onclick="enableTextbox()">
+										style="margin-top: 2em; ">
 									 	Next &nbsp;
 									 <span class="glyphicon glyphicon-chevron-right"></span>
 				      			</button>

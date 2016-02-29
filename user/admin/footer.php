@@ -35,8 +35,8 @@
 				
 						<ul>
 							<li><a href="<?php echo $transactions; ?>assessApplicant.php?token=<?php echo $tran; ?>" style="color: #c0c0c0;" >Assess Applicant</a></li>
-							<li><a href="<?php echo $transactions; ?>endorse.php?token=<?php echo $tran; ?>" style="color: #c0c0c0;">Endorse Applicant</a></li>
-							<li><a href="<?php echo $transactions; ?>deploy.php?token=<?php echo $tran; ?>" style="color: #c0c0c0;">Deploy Applicant</a><li>
+							<li><a href="<?php echo $transactions; ?>endorsedApplicant.php?token=<?php echo $tran; ?>" style="color: #c0c0c0;">Endorse Applicant</a></li>
+							<li><a href="<?php echo $transactions; ?>employedApplicant.php?token=<?php echo $tran; ?>" style="color: #c0c0c0;">Deploy Applicant</a><li>
 							<li><a href="<?php echo $transactions; ?>PEvaluation.php?token=<?php echo $tran; ?>" style="color: #c0c0c0;">Performance Evaluation</a><li>
 						</ul>
 

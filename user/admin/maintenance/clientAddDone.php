@@ -47,7 +47,7 @@
 				</h3>
 				<h4>
 					<br />
-					Click <a href="../index.php?tab=index"><button class="btn btn-success">here</button></a> to continue browsing the site.
+					Click <a href="../index.php?token=<?php echo $home; ?>"><button class="btn btn-success">here</button></a> to continue browsing the site.
 				</h4> 
 
 

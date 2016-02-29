@@ -222,29 +222,37 @@
 
 				date_default_timezone_set('Asia/Manila');
 
-				require_once('class.phpmailer.php');
-				include("class.smtp.php"); // optional, gets called from within class.phpmailer.php if not already loaded
+				require_once('../../PHPMailer-5.2.14/PHPMailerAutoload.php');
+			    $mail = new PHPMailer();
+			                
+			    $mail->SMTPOptions = array(
+			            'ssl' => array(
+			            'verify_peer' => false,
+			            'verify_peer_name' => false,
+			            'allow_self_signed' => true
+			        )
+			    );
+			        
+			    $mail->IsSMTP();                           // telling the class to use SMTP
+			    // $mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
+			                                               // 1 = errors and messages
+			                                               // 2 = messages only
+			    $mail->SMTPAuth   = true;                  // enable SMTP authentication
+			    $mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+			    $mail->Host       = "smtp.gmail.com";      // sets GMAIL as the SMTP server
+			    $mail->Port       = 587;                   // set the SMTP port for the GMAIL server
+			    $mail->IsHTML(true);
+			          
+			    $mail->Username   = "rems.recruitment@gmail.com";  
+			    $mail->Password   = 'r3cruitm3nt;';  
+			    
+			    $mail->SetFrom('rems.recruitment@gmail.com', 'REMS Recruitment');
 
-				$mail             = new PHPMailer();
+			    $mail->Subject    = "Forgot Password";
+			    
+			    $mail->Body = "Hello $email You received this message because you forgot your password, here is your temporary password: $randomPW";
 
-				$mail->IsSMTP(); // telling the class to use SMTP
-				$mail->SMTPDebug  = 1;                     // enables SMTP debug information (for testing)
-														   // 1 = errors and messages
-														   // 2 = messages only
-				$mail->SMTPAuth   = true;                  // enable SMTP authentication
-				$mail->SMTPSecure = "ssl";                 // sets the prefix to the servier
-				$mail->Host       = "smtp.mail.yahoo.com";      // sets GMAIL as the SMTP server
-				$mail->Port       = 465;                   // set the SMTP port for the GMAIL server
-				$mail->IsHTML(true);
-				$mail->Username   = "rems.recruitment@yahoo.com";  
-				$mail->Password   = "r3pr3cruitm3nt;";            
-
-				$mail->SetFrom("rems.recruitment@yahoo.com");
-
-				$mail->Subject    = "Forgot Password";
-
-				$mail->Body = "You received this message because you forgot your password, here is your temporary password: $randomPW";
-
+			    $mail->AddAddress("$email");
 
 				$mail->AddAddress($email);
 				if(!$mail->Send()) {
@@ -272,8 +280,8 @@
 					</div>
 				</div>
 		<?php
-				} else {
-				  //echo "Message sent! Please check your inbox!";
+				}else{
+				  echo $mail->ErrorInfo;
 				}
 			
 
@@ -318,7 +326,7 @@
 							<h4>
 								It seems like you're not registed.
 								Your email address couldn't be found in our database. <br />
-								<a href="howTo.php?tab=operationfailed" 
+								<a href="howTo.php?tab=<?php echo $failed?>" 
 									target="_blank" 
 									style="text-decoration:underline;
 											color:#333333;">Click here</a>&nbsp; to find out why.

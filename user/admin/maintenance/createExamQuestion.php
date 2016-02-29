@@ -27,7 +27,7 @@ $(document).ready(function() {
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-         $(wrapper).append('<div><div class="form-group col-md-6 col-md-offset-3"><input type="text" class="form-control" name="name_Choices[]" value="" maxlength="250" required /></div><a href="#" class="remove_field">Remove</a></div>'); //add input box
+         $(wrapper).append('<div  class="form-group col-md-12"><div  class="form-group col-md-3"></div><div class="form-group col-md-6"><input type="text" class="form-control" name="name_Choices[]" value="" maxlength="250" required /></div><a href="#" class="remove_field">Remove</a><div  class="form-group col-md-3"></div>'); //add input box
        
 	   }
     });
@@ -104,58 +104,88 @@ $(document).ready(function() {
 			
 			<form method="POST" action="../../../config/insertExamQuestion.php">	
 			
-			
-				<div class="form-group col-md-6 col-md-offset-3">
-					<label>Subject: </label>
-					<input type="text"
-							class="form-control" 
-							name="examSubject" 
-							value='<?php echo $subjectName;?>' 
-							maxlength="250" 
-							disabled
-					/>
-							  
+				
+				<div class="form-group col-md-12">
+				
+					<div class="form-group col-md-3">
+					</div>
+					
+					<div class="form-group col-md-6">
+						<label>Subject: </label>
+						<input type="text"
+								class="form-control" 
+								name="examSubject" 
+								value='<?php echo $subjectName;?>' 
+								maxlength="250" 
+								disabled
+						/>	  
+					</div>
+					
+					<div class="form-group col-md-3">
+					</div>
 				</div>
 				
-				<div class="form-group col-md-6 col-md-offset-3">
-					<label>Exam Title:</label>
-					<input type="text"
-							class="form-control" 
-							name="examTitle" 
-							value='<?php echo $examTitle?>' 
-							maxlength="250"  
-							disabled
-					/>
-							  
+				<div class="form-group col-md-12">
+				
+					<div class="form-group col-md-3">
+					</div>
+				
+					<div class="form-group col-md-6">
+						<label>Exam Title:</label>
+						<input type="text"
+								class="form-control" 
+								name="examTitle" 
+								value='<?php echo $examTitle?>' 
+								maxlength="250"  
+								disabled
+						/>	  
+					</div>
+					
+					<div class="form-group col-md-3">
+					</div>
 				</div>
 
-				<div class="form-group col-md-6 col-md-offset-3">
-					<br /><br />
-					<label>Question no. <?php echo $_SESSION['ses_questionCtr']." :*"; ?></label>
-					<textarea class="form-control" 
-							name="name_Question" 
-							value='' 
-							cols="6" 
-							rows="5"
-							placeholder="Type your question here"
-							maxlength="1000" required></textarea> 
-							
-							  
+				
+				<div class="form-group col-md-12">
+				
+					<div class="form-group col-md-3">
+					</div>
+					
+					<div class="form-group col-md-6">
+						<br /><br />
+						<label>Question no. <?php echo $_SESSION['ses_questionCtr']." :*"; ?></label>
+						<textarea class="form-control" 
+								name="name_Question" 
+								value='' 
+								cols="6" 
+								rows="5"
+								placeholder="Type your question here"
+								maxlength="1000" required></textarea> 	  
+					</div>
+					
+					<div class="form-group col-md-3">
+					</div>
 				</div>
 
+				<div class="form-group col-md-12">
 				
-				<div class="form-group col-md-6 col-md-offset-3">
-				<label>Choices: *</label>
-					<input type="text"
-							class="form-control" 
-							name="name_Choices[]" 
-							value='' 
-							maxlength="250"   
-							required 
-					/>
-							  
+					<div class="form-group col-md-3">
+					</div>
+				
+					<div class="form-group col-md-6">
+					<label>Choices: *</label>
+						<input type="text"
+								class="form-control" 
+								name="name_Choices[]" 
+								value='' 
+								maxlength="250"   
+								required 
+						/>
+					</div>
+					
+					<div class="form-group col-md-3">
+					</div>
 				</div>
-				
 				
 				<div class="input_fields_wrap">
 				</div>

@@ -6,6 +6,79 @@
 	include('../adminNotifModal.php');
 ?>
 
+
+<script type = "text/javascript">
+	
+	function formValidationJobUpdate(){
+						
+						if( (document.getElementById("name_searchJob").value=="general")  || ( (document.getElementById("name_searchJob").value=="others") && (document.getElementById("name_jobPostingTitleOthers").value==""))) 
+						{
+							alert("Please enter the Job Title.");
+							return false;
+						}
+						
+						else if(document.getElementById("name_jobPostingExpectedMonthlySalary").value=="Php ")
+						{
+							alert("Please enter Monthly Salary.");
+							return false;
+						}
+						
+						else if ( parseInt(document.getElementById("name_jobPostingAgeFrom").value) > parseInt(document.getElementById("name_jobPostingAgeTo").value))
+						{
+							alert("Invalid Age Range.");
+							return false;
+						}
+						
+						else if (parseInt(document.getElementById("name_jobPostingAgeFrom").value) < 18)
+						{
+							alert("Age should be 18 yrs old and above.");
+							return false;
+						}
+						
+						else if (( document.getElementById("name_jobPostingSearchReligion").value=="Others" ) && ( document.getElementById("name_jobPostingReligionOthers").value=="" ))
+						{
+							alert("Please enter Religion.");
+							return false;
+						}
+						
+						else if (( document.getElementById("name_jobPostingSearchNationality").value=="Others" ) && ( document.getElementById("name_jobPostingNationalityOthers").value=="" ))
+						{
+							alert("Please enter Nationality.");
+							return false;
+						}
+						
+						else if ( (document.getElementById("name_jobPostingHeightAny").checked==false) && ( (parseInt(document.getElementById("name_jobPostingHeightFrom").value)) > (parseInt(document.getElementById("name_jobPostingHeightTo").value)) ) )
+						{
+							alert("Invalid Height Range.");
+							return false;
+						}
+						
+						else if ((document.getElementById("name_jobPostingHeightAny").checked==false) && ((document.getElementById("name_jobPostingHeightFrom").value=="") && (document.getElementById("name_jobPostingHeightTo").value=="") ) )
+						{
+							alert("Please enter Height Range.");
+							return false;
+						}
+						
+						
+						else if ( (document.getElementById("name_jobPostingWeightAny").checked==false) && ( parseInt(document.getElementById("name_jobPostingWeightFrom").value) > parseInt(document.getElementById("name_jobPostingWeightTo").value)) )
+						{
+							alert("Invalid Weight Range.");
+							return false;
+						}
+						
+						else if ((document.getElementById("name_jobPostingWeightAny").checked==false) && ((document.getElementById("name_jobPostingWeightFrom").value=="") && (document.getElementById("name_jobPostingWeightTo").value=="") ) )	
+						{
+							alert("Please enter Weight Range.");
+							return false;
+						}
+						
+						
+					}//function
+						
+	</script>
+
+
+
 	<script type="text/javascript">
 				function getCaret(el) {
 					var pos = -1; 
@@ -290,7 +363,7 @@
 										maxlength='6' />
 				
 				<div class="form-group col-md-3">
-				<label style="margin-top:2.5em;">Job Name:</label>
+				<label style="margin-top:2.5em;">Job Title:</label>
 					<input class="form-control" type="text"  style="margin-top: 1em;" name="name_jobName" value="<?php echo $jobName; ?>" disabled />
 				</div>
 				
@@ -403,14 +476,14 @@
 	?>
 				
 				
-					<form method="POST" action="../../../config/updateJobQualifications.php">
+					<form method="POST" action="../../../config/updateJobQualifications.php" onsubmit=" return formValidationJobUpdate()">
 									
 						
 							
 									<div class="form-group col-md-12">
 									</div>	
 									<div class="form-group col-md-6">
-										<label> Job Name: </label>
+										<label> Job Title: *</label>
 										<input type="text" 
 											class="form-control" 
 											name="name_jobPostingJobName" 
@@ -426,8 +499,8 @@
 									
 									
 									<div class="form-group col-md-3">
-										<label> Job Vacancy: </label>
-										<input type="text" 
+										<label> Job Vacancy: *</label>
+										<input type="number" 
 											class="form-control" 
 											name="name_jobPostingJobVacancy" 
 											value='<?php echo $jobVacancy;?>' 
@@ -438,7 +511,7 @@
 									</div>
 									
 									<div class="form-group col-md-3">
-										<label> Monthly salary: </label>
+										<label> Monthly salary: *</label>
 										<input type="text" 
 											class="form-control" 
 											name="name_jobPostingExpectedMonthlySalary" 
@@ -448,6 +521,7 @@
 											echo "value='Php $jobExpectedSalary'";
 											}
 											?>
+											
 											maxlength="13"
 											placeholder="" 
 											id="name_jobPostingExpectedMonthlySalary"
@@ -470,7 +544,7 @@
 			
 									<div class="form-group col-md-2">
 										<label>
-											Gender: *
+											Gender: 
 										</label>
 											<select type="position" 
 													class="form-control"  
@@ -532,8 +606,8 @@
 										?>
 											
 									<div class="form-group col-md-2">
-										<label for="appHeight">Age Range (from):</label>
-										<input type="text" 
+										<label for="appHeight">Age Range (from): *</label>
+										<input type="number" 
 												class="form-control" 
 												name="name_jobPostingAgeFrom" 
 												value='<?php echo $jobAgeFrom;?>'  
@@ -546,8 +620,8 @@
 									</div>
 									
 									<div class="form-group col-md-2">
-										<label for="appHeight">Age Range (to):</label>
-										<input type="text" 
+										<label for="appHeight">Age Range (to): *</label>
+										<input type="number" 
 												class="form-control" 
 												name="name_jobPostingAgeTo" 
 												value='<?php echo $jobAgeTo;?>' 
@@ -593,7 +667,7 @@
 							
 								
 						<div class="form-group col-md-6">
-						<label>Religion: *</label>
+						<label>Religion: </label>
 						
 						<?php	
 						$con = mysql_connect("$db_hostname","$db_username","$db_password");
@@ -661,7 +735,7 @@
 									id="name_jobPostingReligionOthers"
 									value=''
 									maxlength="250" 
-									style="margin-top:1.5em;"
+									style="margin-top:.5em;"
 									placeholder="Others, please specify"
 									style="text-transform: capitalize;"
 									disabled = true
@@ -685,7 +759,7 @@
 												
 										
 						<div class="form-group col-md-6">
-							<label>Nationality: *</label>
+							<label>Nationality: </label>
 
 						
 					<?php	
@@ -759,7 +833,7 @@
 										id="name_jobPostingNationalityOthers"
 										value=''
 										maxlength="250" 
-										style="margin-top:1.5em;"
+										style="margin-top:.5em;"
 										placeholder="Others, please specify"
 										style="text-transform: capitalize;"
 										disabled = true
@@ -862,7 +936,7 @@
 												<label>
 													Height (meters) from:
 												</label>
-												<input type="text"
+												<input type="number"
 														class="form-control" 
 														name="name_jobPostingHeightFrom" 
 														id="name_jobPostingHeightFrom"
@@ -879,7 +953,7 @@
 											<label>
 												Up to:
 											</label>
-											<input type="text"
+											<input type="number"
 													class="form-control" 
 													name="name_jobPostingHeightTo" 
 													id="name_jobPostingHeightTo"
@@ -966,7 +1040,7 @@
 										<label>
 												Weight (kg) from:
 											</label>
-											<input type="text"
+											<input type="number"
 													class="form-control" 
 													name="name_jobPostingWeightFrom" 
 													id="name_jobPostingWeightFrom"
@@ -980,7 +1054,7 @@
 											<label>
 												Up to:
 											</label>
-											<input type="text"
+											<input type="number"
 													class="form-control" 
 													name="name_jobPostingWeightTo" 
 													id="name_jobPostingWeightTo"
@@ -1092,7 +1166,7 @@
 											name = "submitForm" 
 											id = "submitForm"  
 											style="margin-top: 2em;"  
-											onclick=""/>
+											>
 											Next &nbsp;
 											<span class="glyphicon glyphicon-chevron-right"></span>
 											</button>

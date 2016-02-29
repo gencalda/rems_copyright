@@ -44,8 +44,10 @@
 					<form method="POST" action="../../../config/typeOfBusinessInsert.php">
 						
 						<fieldset class="col-md-12">
-							<legend>Add New Type of Business</legend>
-							<div class="form-group col-md-12">
+							<div class="form-group col-md-8  col-md-offset-2">
+								<legend>Add New Type of Business</legend>
+							</div>
+							<div class="form-group col-md-8  col-md-offset-2">
 								<label>Type of Business: * </label>
 								<input type="text" 
 										class="form-control" 
@@ -57,7 +59,7 @@
 
 					
 
-							<div class="form-group col-md-12">
+							<div class="form-group col-md-8  col-md-offset-2">
 								<label>Description: </label>
 								<textarea class="form-control" 
 										name="typeOfBusinessDesc" 
@@ -74,22 +76,9 @@
 							
 
 
-						<div class="form-group col-md-2 col-md-offset-4">
-									
-							<button type="reset" 
-									class="btn btn-danger btn-md btn-block"
-									name ="reset" 
-									tabindex="-1" 
-									style="margin-top: 2em; ">
-								 	Clear &nbsp;
-								 <span class="glyphicon glyphicon-remove"></span>
-			      			</button>
-			      		
-			      		</div>
+						
 
-			
-
-						<div class="form-group col-md-2">
+						<div class="form-group col-md-2  col-md-offset-5">
 								
 								<button type="submit" 
 										class="btn btn-primary btn-md btn-block"

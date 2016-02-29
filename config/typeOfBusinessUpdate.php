@@ -15,6 +15,6 @@
 ?>
 <?php
 		$main = md5('maintenance');
-		header("Location: ../user/admin/maintenance/typeOfBusinessUpdateDone.php.php?token=$main");
+		header("Location: ../user/admin/maintenance/typeOfBusinessUpdateDone.php?token=$main");
 		exit;
 ?>

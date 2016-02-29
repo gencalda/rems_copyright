@@ -11,7 +11,7 @@
 		    <li>Utilities</li>&nbsp;&nbsp;&nbsp;<span class="divider">&raquo;</span>&nbsp;&nbsp;&nbsp;
 		    <li><a href="exam.php?token=<?php echo $main; ?>">Exam</a></li>&nbsp;&nbsp;&nbsp;<span class="divider">&raquo;</span>&nbsp;&nbsp;&nbsp;
 		    <li class="active">
-				Create Exam
+				Create Exam Answer Key
  			</li>
 		</ul>
 	</div>
@@ -41,7 +41,7 @@
 					<ul class="nav navbar-nav">
 						<li>
 							<h3>
-								<a href="createExam.php?token=<?php echo $main; ?>" style="margin-left:.5em;">Create Exam</a>
+								<a href="createExam.php?token=<?php echo $main; ?>" style="margin-left:.5em;">Create Exam Answer Key</a>
 							</h3>
 						</li>
 					</ul>
@@ -58,7 +58,7 @@
 			  	</div>
 			</nav>
 
-				<h4 class="alert-info well-lg instruction">Create an exam for a client. Fields with asterisk (*) are required.</h4>
+				<h4 class="alert-info well-lg instruction">Please choose the correct answer for each questions.</h4>
 				<br /><br />
 				<form method="POST" action="../../../config/insertAnswerKey.php">
 				<div class="form-group col-md-6 col-md-offset-3">

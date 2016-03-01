@@ -47,11 +47,6 @@
 					</ul>
 					<ul class="nav navbar-nav pull-right">
 						<li>
-							<a href="updateExam.php?token=<?php echo $main; ?>" style="margin-left:2.5em; margin-top:.2em;"><span class="glyphicon glyphicon-edit"> </span> Update</a>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav pull-right">
-						<li>
 							<a href="exam.php?token=<?php echo $main; ?>" style="margin-top:.2em;"><span class="glyphicon glyphicon-arrow-left"></span> Exam</a>
 						</li>
 					</ul>

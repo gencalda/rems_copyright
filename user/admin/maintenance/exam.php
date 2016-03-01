@@ -29,11 +29,6 @@
 					</ul>
 					<ul class="nav navbar-nav pull-right">
 						<li>
-							<a href="#?token=<?php echo $main; ?>" style="margin-left:2.5em; margin-top:.2em;"><span class="glyphicon glyphicon-edit"> </span> Update</a>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav pull-right">
-						<li>
 							<a href="createExam.php?token=<?php echo $main; ?>"style="margin-top:.2em;"><span class="glyphicon glyphicon-plus"></span> Create</a>
 						</li>
 					</ul>
@@ -43,90 +38,78 @@
 			<br />
 			<div class="container-fluid table-responsive content">
 				<?php
-				if (isset($_POST['submit']))
-				{
+
+						$examSubject = array();
+						$examTitle = array();
+						$examClientName = array();
+						$examJobName = array();
+
 					$con = mysql_connect("$db_hostname","$db_username","$db_password");
 					if (!$con)
 					{
 						die('Could not connect: ' . mysql_error()); 
 					}
 					mysql_select_db("$db_database", $con);
-					
-					if ($_POST['searchClient']=="All Client")
-					{	
-						$result = mysql_query("SELECT * FROM client");
-					}
-					else if($_POST['searchClientName']=="pen")
-					{
-						$result = mysql_query("SELECT * FROM client WHERE clientName LIKE '%".$_POST['searchClientName']."%'");
-					}
-					else
-					{
-						$result = mysql_query("SELECT * FROM client WHERE clientID = '".$_POST['searchClient']."'");
-					}
-					echo"<div class='outer'>
-					<div class='inner'>";
-					echo "<table class='table  table-responsive table-hover table-striped'>";
-					echo "<thead class='tablehead'>";
-					echo "<tr>
-						<td>Exam Code</td>
-						<td>Subject</td>
-						<td>Client Name</td>
-						</tr>
-					</thead>";
+					$result = mysql_query("SELECT *
+										FROM tbl_exam
+										LEFT JOIN tbl_job_posting
+										ON tbl_exam.jobPostingId = tbl_job_posting.jobPostingId
+										LEFT JOIN tbl_client
+										ON tbl_client.clientId = tbl_job_posting.clientId
+										LEFT JOIN tbl_subject
+										ON tbl_subject.subjectId = tbl_exam.subjectId
+										");
 
-					while($row = mysql_fetch_array($result)) 
+					$ctr = 0;
+					while ($row = mysql_fetch_array($result))
 					{
-						echo "<tr>";						
-						echo "<td>" . $row['clientStartContract'] . "</td>";
-						echo "<td>" . $row['clientEmailAddress'] . "</td>";
-						echo "<th>" . $row['clientName'] . "</th>";
-						echo "</tr>";
-						
+						$examSubject[$ctr] = $row['subjectName'];
+						$examTitle[$ctr] = $row['examTitle'];
+						$examClientName[$ctr] = $row['clientName'];
+						$examJobName[$ctr] = $row['jobName'];
+						$ctr++;
 					}
 
-					echo "</table>";
-					echo"</div>
-					</div>";
-					mysql_close($con);
-				}
-					
-				else
-				{
-					$con = mysql_connect("$db_hostname","$db_username","$db_password");
-					if (!$con)
-					{
-						die('Could not connect: ' . mysql_error()); 
-					}
-					mysql_select_db("$db_database", $con);
-					$result = mysql_query("SELECT * FROM client");
+					$ctr =0;
 					echo"<div class='outer'>
 					<div class='inner'>";
 					echo "<table class='table table-responsive table-hover table-striped'>";
-					echo "<thead>";
-					echo "<tr class='tablehead'>
-						<td>Exam Code</td>
-						<td>Subject</td>
-						<td>Client Name</td>
-						
-						</tr>
-					</thead>";
-
-					while($row = mysql_fetch_array($result)) 
+					if (isset($examTitle[$ctr]))
 					{
-						echo "<tr>";						
-						echo "<td>" . $row['clientStartContract'] . "</td>";
-						echo "<td>" . $row['clientEmailAddress'] . "</td>";
-						echo "<th>" . $row['clientName'] . "</th>";
-						echo "</tr>";
-						
+						echo "<thead>";
+						echo "<tr class='tablehead'>
+							<td>Exam Title</td>
+							<td>Subject</td>
+							<td>Client Name</td>
+							<td>Job Name</td>
+							</tr>
+						</thead>";
+					}
+					else 
+					{
+						echo "<tr>
+							<td>No exam available.</td>
+							</tr>";
+					}
+				
+					while(isset($examTitle[$ctr]) &&($examTitle[$ctr]!="")) 
+					{
+						echo"
+						<tr>
+						<td>$examTitle[$ctr]</td>
+						<td>$examSubject[$ctr]</td>
+						<td>$examClientName[$ctr]</td>
+						<td>$examJobName[$ctr]</td>
+						</tr>
+						";
+						$ctr++;
 					}
 
 					echo "</table>";
 					echo"</div>
 					</div>";
 					mysql_close($con);
-				}
+				
 				?>
 			</div>
 		</div>

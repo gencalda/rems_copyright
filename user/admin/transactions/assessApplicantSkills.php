@@ -373,7 +373,7 @@
 
 							$resultQuestions = mysql_query("SELECT COUNT(*)
 												FROM tbl_question
-												WHERE examId = 1
+												WHERE examId = $examID[$ctr]
 											");
 							$rowCount = mysql_fetch_row($resultQuestions);
 
@@ -971,7 +971,7 @@
 																id="name_appInfoBenificiaryName"
 																style="text-transform: capitalize;" 
 																title="Ax'l Daniel Kim"
-																required 
+																readonly
 														/>
 													</div>
 											
@@ -986,6 +986,7 @@
 																id="name_appInfoBenificiaryAddress"
 																style="text-transform: capitalize;" 
 																title="143 Pureza St., Sta. Mesa, Manila"
+																readonly
 														/>
 													</div>
 											
@@ -998,7 +999,7 @@
 																maxlength="250"
 																id="name_appInfoBenificiaryRelationship"
 																style="text-transform: capitalize;" 
-																required
+																readonly
 														/>
 													</div>
 													
@@ -1012,7 +1013,7 @@
 																maxlength="250"
 																id="name_appInfoBenificiaryRelationship"
 																style="text-transform: capitalize;" 
-																required
+																readonly
 														/>
 													</div>
 													
@@ -1025,7 +1026,7 @@
 																maxlength="250"
 																id="name_appInfoBenificiaryRelationship"
 																style="text-transform: capitalize;" 
-																required
+																readonly
 														/>
 													</div>
 													
@@ -1039,7 +1040,7 @@
 																maxlength="250"
 																id="name_appInfoBenificiaryRelationship"
 																style="text-transform: capitalize;" 
-																required
+																readonly
 														/>
 													</div>
 	
@@ -1152,6 +1153,7 @@
 												id="name_appInfoNameOfSpouse"
 												style="text-transform: capitalize;" 
 												title="Ax'l Daniel Kim"
+												readonly
 										/>
 									</div>		
 							
@@ -1165,6 +1167,7 @@
 												id="name_appInfoSpouseAddress"
 												style="text-transform: capitalize;" 
 												title="143 Pureza St., Sta. Mesa, Manila"
+												readonly
 										/>
 									</div>
 							
@@ -1178,6 +1181,7 @@
 												id="name_appInfoSpouseAddress"
 												style="text-transform: capitalize;" 
 												title="143 Pureza St., Sta. Mesa, Manila"
+												readonly
 										/>
 									</div>						
 					 
@@ -1213,7 +1217,6 @@
 									<td>$examStatus[$ctr]</td>
 									</tr>
 									";
-									
 									$ctr++;
 								}//while
 

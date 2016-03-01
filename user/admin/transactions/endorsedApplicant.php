@@ -51,17 +51,36 @@
 												FROM tbl_endorsement
 												WHERE endorsementStatus = 'Active'
 												ORDER BY endorsementId");
-						echo "<table class='table table-hover table-striped'>";
-						echo "<thead class='tablehead'>";
-						echo "<tr>
-										<td>Applicant Name</td>
-										<td>Endorsed as</td>
-										<td>Client</td>
-										<td>Status</td>
-										<td></td>
-						</tr>";
-										
-						echo "</thead>";
+
+						$resultCount = mysql_query("SELECT *
+												FROM tbl_endorsement
+												WHERE endorsementStatus = 'Active'
+												ORDER BY endorsementId
+													");
+
+						$rowCount = mysql_fetch_row($resultCount);
+
+						if ($rowCount==0)
+						{
+							echo "<table class='table table-hover table-striped'>";	
+							echo "<tr>
+							<td>No Endorsed Applicant available.</td>
+							</tr>";
+						}
+						else if ($rowCount>0)
+						{
+								echo "<table class='table table-hover table-striped'>";
+								echo "<thead class='tablehead'>";
+								echo "<tr>
+												<td>Applicant Name</td>
+												<td>Endorsed as</td>
+												<td>Client</td>
+												<td>Status</td>
+												<td></td>
+								</tr>";
+												
+								echo "</thead>";
+						}
 
 						//echo $result;
 						
@@ -108,7 +127,6 @@
 							if ($status=='Active')
 							{
 							
-								//echo "<td ><a style='color:black;  text-decoration: underline;' href = 'endorsedApplicantAssess.php?token=$tran&&endorseID=".$row['endorsementId']."&&appID=".$row['applicantId']."'>" .$lastName.", ".$firstName." ".$middleName." </a></td>";
 								echo "<td ><a style='color:black;  text-decoration: underline;' href = '#'>" .$lastName.", ".$firstName." ".$middleName." </a></td>";
 								
 								echo "<td>$jobName</td>";

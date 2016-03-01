@@ -13,7 +13,7 @@
 <div class='container-fluid content'>
 		<ul class="breadcrumb">
 			<li>Transactions</li>&nbsp;&nbsp;&nbsp;<span class="divider">&raquo;</span>&nbsp;&nbsp;&nbsp;
-			<li class="active">Assess Applicant</li>
+			<li class="active"><a href="assessApplicant.php?token=<?php echo $tran; ?>">Assess Applicant</a></li>
 		</ul>
 	</div>
 
@@ -51,6 +51,8 @@
 						$basicEmail = '';
 						$basicDOB = '';
 						$basicBirthplace = '';
+						$basicNotes = '';
+						
 						
 						$appQualityGender = '';
 						$appQualityCivilStatus = '';
@@ -116,6 +118,8 @@
 						
 						$examName = array();
 						$examScore = array();
+						$examStatus = array();
+						$examhps = array();
 						
 	
 						$con = mysql_connect("$db_hostname","$db_username","$db_password");
@@ -180,7 +184,9 @@
 							$basicEmail = $row['basicEmail'];
 							$basicDOB = $row['basicDob'];
 							$basicBirthplace = $row['basicBirthPlace'];
+							$basicNotes = $row['basicNotes'];
 						}//while
+						
 						
 						// --------------------------------------------------
 						
@@ -360,8 +366,19 @@
 												
 						while($row = mysql_fetch_array($result)) 
 						{
+							$examID[$ctr] = $row['examId'];
 							$examName[$ctr] = $row['examTitle'];
-							$examScore[$ctr] = $row['examStatus'];
+							$examScore[$ctr] = $row['applicantExamScore'];
+							$examStatus[$ctr] = $row['examStatus'];
+
+							$resultQuestions = mysql_query("SELECT COUNT(*)
+												FROM tbl_question
+												WHERE examId = 1
+											");
+							$rowCount = mysql_fetch_row($resultQuestions);
+
+							$examhps[$ctr] = $rowCount[0];
+
 							$ctr++;
 						}
 						// --------------------------------------------------
@@ -442,7 +459,7 @@
 									maxlength="250"
 									id="name_basicLastName"
 									title="Dela Cruz" 
-									required								 
+									readonly								 
 							/>
 						</div>
 
@@ -456,7 +473,7 @@
 									id="name_basicFirstName"
 									title="Juan"
 									style="text-transform: capitalize;"
-									required
+									readonly
 							/>
 						</div>
 
@@ -469,6 +486,7 @@
 									maxlength="250"
 									id="name_basicMiddleName"
 									title="Miguel"
+									readonly
 							/>
 						</div>
 
@@ -482,6 +500,7 @@
 									placeholder="Jr/Sr, IV"
 									id="name_basicExtName"
 									title="Jr/Sr, IV"
+									readonly
 							/>
 						</div>
 						
@@ -524,7 +543,7 @@
 										maxlength="250"
 										id="name_personalPlaceOfBirth"
 										value='<?php echo $basicDOB; ?>' 
-										required
+										readonly
 										 
 								/>
 							</div>
@@ -537,8 +556,7 @@
 										maxlength="250"
 										id="name_personalPlaceOfBirth"
 										value='<?php echo $basicBirthplace; ?>' 
-										required
-										 
+										readonly
 								/>
 							</div>
 							
@@ -550,8 +568,7 @@
 										maxlength="250"
 										id="name_personalPlaceOfBirth"
 										value='<?php echo $appQualityGender; ?>' 
-										required
-										 
+										readonly
 								/>
 							</div>
 							
@@ -563,8 +580,7 @@
 										maxlength="250"
 										id="name_personalPlaceOfBirth"
 										value='<?php echo "$appQualityHeight ft"; ?>' 
-										required
-										 
+										readonly
 								/>
 							</div>
 							
@@ -576,8 +592,7 @@
 										maxlength="250"
 										id="name_personalPlaceOfBirth"
 										value='<?php echo "$appQualityWeight kg"; ?>' 
-										required
-										 
+										readonly
 								/>
 							</div>
 							
@@ -589,8 +604,7 @@
 										maxlength="250"
 										id="name_personalPlaceOfBirth"
 										value='<?php echo $appQualityCivilStatus; ?>' 
-										required
-										 
+										readonly
 								/>
 							</div>
 							
@@ -602,8 +616,7 @@
 										maxlength="250"
 										id="name_personalPlaceOfBirth"
 										value='<?php echo $appQualitySearchReligion; ?>' 
-										required
-										 
+										readonly
 								/>
 							</div>
 							
@@ -615,8 +628,7 @@
 										maxlength="250"
 										id="name_personalPlaceOfBirth"
 										value='<?php echo $appQualitySearchNationality; ?>' 
-										required
-										 
+										readonly
 								/>
 								 <br /> <br />
 							</div>
@@ -633,6 +645,7 @@
 													id="name_addBlock"
 													style="text-transform: capitalize;" 
 													title=""
+													readonly
 											/>
 										</div>
 
@@ -647,6 +660,7 @@
 										id="name_addStreet"
 										style="text-transform: capitalize;" 
 										title=""
+										readonly
 								/>
 							</div>
 
@@ -660,6 +674,7 @@
 										id="name_addSubdivision"
 										style="text-transform: capitalize;" 
 										title=""
+										readonly
 								/>
 							</div>
 
@@ -673,6 +688,7 @@
 										id="name_addBrgy"
 										style="text-transform: capitalize;" 
 										title=""
+										readonly
 								/>
 							</div>
 
@@ -686,6 +702,7 @@
 										id="name_addDistrict"
 										style="text-transform: capitalize;" 
 										title="Ax'l Daniel Kim"
+										readonly
 								/>
 							</div>
 
@@ -700,6 +717,7 @@
 										id="name_addCity"
 										style="text-transform: capitalize;" 
 										title=""
+										readonly
 								/>
 							</div>
 
@@ -713,6 +731,7 @@
 										id="name_addProvince"
 										style="text-transform: capitalize;" 
 										title=""
+										readonly
 								/>
 							</div>
 
@@ -726,6 +745,7 @@
 										id="name_addCountry"
 										style="text-transform: capitalize;" 
 										title=""
+										readonly
 								/>
 
 							</div>
@@ -740,6 +760,7 @@
 													id="name_addZipCode"
 													style="text-transform: capitalize;" 
 													title=""
+													readonly
 											/>
 										</div>
 						
@@ -762,6 +783,7 @@
 												id="name_appInfoNameOfSpouse"
 												style="text-transform: capitalize;" 
 												title="Ax'l Daniel Kim"
+												readonly
 										/>
 									</div>		
 							
@@ -775,6 +797,7 @@
 												id="name_appInfoSpouseAddress"
 												style="text-transform: capitalize;" 
 												title="143 Pureza St., Sta. Mesa, Manila"
+												readonly
 										/>
 									</div>
 							
@@ -788,19 +811,28 @@
 												id="name_appInfoSpouseOccupation"
 												style="text-transform: capitalize;" 
 												title="Freelance Model"
+												readonly
 										/>
 									</div>
-						
-						<div class="form-group col-md-12">
-						<br />
-							<?php	
-								echo "<table class='table table-hover table-striped'>";
-								echo "<th>Name of Child</th>";
-								echo "<th>Age</th>";
-								echo "<th>Gender</th>";
-								echo "<th>Civil Status</th>";
+						<?php	
+							$ctr =0;
+
+							if(isset($childName[$ctr]))
+							{
+								echo'
+								<div class="form-group col-md-12">
+								<br />';
+							}
 								
-								$ctr =0;
+								if(isset($childName[$ctr]))
+								{
+									echo "<table class='table table-hover table-striped'>";
+									echo "<th>Name of Child</th>";
+									echo "<th>Age</th>";
+									echo "<th>Gender</th>";
+									echo "<th>Civil Status</th>";
+								}
+
 								while(isset($childName[$ctr]) &&($childName[$ctr]!="")) 
 								{
 									echo"
@@ -816,10 +848,16 @@
 								}//while
 
 								echo "</table>";
-							?>
-							 <br />
-						</div>
-						
+							
+							$ctr =0;
+
+							if(isset($childName[$ctr]))
+							{
+								echo"
+								<br />
+								</div>";
+							}
+						?>
 						<div class="form-group col-md-8">
 										<label for="name_appInfoNameOfFather">Father's Name: *</label>
 										<input type="text" 
@@ -830,7 +868,7 @@
 												id="name_appInfoNameOfFather"
 												style="text-transform: capitalize;" 
 												title="Jose Dela Cruz"
-												required
+												readonly
 										/>
 									</div>
 				
@@ -843,7 +881,8 @@
 									maxlength="250"
 									id="name_appInfoOccupationOfFather"
 									title="Programmer"
-									style="text-transform: capitalize;" 
+									style="text-transform: capitalize;"
+									readonly 
 							/>
 						</div>
 								
@@ -858,6 +897,7 @@
 									id="name_appInfoNameOfMother"
 									title="Joselita Porcalla"
 									style="text-transform: capitalize;" 
+									readonly
 							/>
 						</div>
 								
@@ -871,6 +911,7 @@
 									id="name_appInfoOccupationOfMother"
 									title="Bank Manager"
 									style="text-transform: capitalize;" 
+									readonly
 							/>
 							<br /><br />
 						</div>
@@ -886,7 +927,7 @@
 												id="name_appInfoEmergencyContactPerson"
 												style="text-transform: capitalize;" 
 												title="Joselita Dela Cruz" 
-												required
+												readonly
 										/>
 									</div>
 								
@@ -900,7 +941,7 @@
 									id="name_appInfoAddressOfContactPerson"
 									title="143 Quirino Ave, San Bartolome, Quezon City"
 									style="text-transform: capitalize;" 
-									required
+									readonly
 							/>
 						</div>
 						<div class="form-group col-md-4">
@@ -912,7 +953,7 @@
 									maxlength="250"
 									id="name_appInfoContactNumberOfContactPerson"
 									title="09123654987" 
-									required
+									readonly
 							/>
 							<br /><br />
 						</div>
@@ -1014,14 +1055,24 @@
 						<div class="form-group col-md-12">
 						<br />
 							<?php	
-								echo "<table class='table table-hover table-striped'>";
-								echo "<th>School Name</th>";
-								echo "<th>Level</th>";
-								echo "<th>Address</th>";
+								
 								
 								$ctr =0;
+									echo "<table class='table table-hover table-striped'>";
+									if(isset($schoolName[$ctr]))
+									{
+										echo "<th>School Name</th>";
+										echo "<th>Level</th>";
+										echo "<th>Address</th>";
+									}
+									else
+									{
+										echo "<th>No Educational Attainment available.</th>";
+									}
+
 								while(isset($schoolName[$ctr]) &&($schoolName[$ctr]!="")) 
 								{
+
 									echo"
 									<tr>
 									<td>$schoolName[$ctr]</td>
@@ -1047,15 +1098,23 @@
 					    <div class="form-group col-md-12">
 						<br />
 							<?php	
-								echo "<table class='table table-hover table-striped'>";
-								echo "<th>Company Name</th>";
-								echo "<th>Work Year</th>";
-								echo "<th>Position</th>";
-								echo "<th>Salary</th>";
-								echo "<th>Supervisor</th>";
-								echo "<th>Reason for Leaving</th>";
 								
 								$ctr =0;
+									echo "<table class='table table-hover table-striped'>";
+									if(isset($companyName[$ctr]))
+									{
+										echo "<th>Company Name</th>";
+										echo "<th>Work Year</th>";
+										echo "<th>Position</th>";
+										echo "<th>Salary</th>";
+										echo "<th>Supervisor</th>";
+										echo "<th>Reason for Leaving</th>";
+									}
+									else
+									{
+										echo "<th>No Work Experience available.</th>";
+									}
+
 								while(isset($companyName[$ctr]) &&($companyName[$ctr]!="")) 
 								{
 									echo"
@@ -1132,17 +1191,26 @@
 						<br />
 						<?php	
 									
-								echo "<table class='table table-hover table-striped'>";
-								echo "<th>Exam Name</th>";
-								echo "<th>Result</th>";
-								
 								$ctr =0;
-								while(isset($appContactDevice[$ctr]) &&($appContactDevice[$ctr]!="")) 
+								echo "<table class='table table-hover table-striped'>";
+									if(isset($examName[$ctr]))
+									{
+										echo "<th>Exam Name</th>";
+										echo "<th>Score</th>";
+										echo "<th>Status</th>";
+									}
+									else
+									{
+										echo "<th>No Exam Result available.</th>";
+									}
+
+								while(isset($examName[$ctr]) &&($examScore[$ctr]!="")) 
 								{
 									echo"
 									<tr>
 									<td>$examName[$ctr]</td>
-									<td>$examScore[$ctr]</td>
+									<td>$examScore[$ctr] out of $examhps[$ctr]</td>
+									<td>$examStatus[$ctr]</td>
 									</tr>
 									";
 									
@@ -1275,9 +1343,12 @@
 			?>
 			<br/><br/>
 
+			
+			
+			
 						<label>Notes:</label>
-						<textarea class="form-control" name="name_ApplicantNotes" value=""
-									rows="8" placeholder="Type your notes here ..."></textarea>
+						<textarea class="form-control" name="name_ApplicantNotes" 
+									rows="8" placeholder="Type your notes here ..."><?php echo $basicNotes ?></textarea>
 					</div>
 			
 

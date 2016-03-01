@@ -93,6 +93,9 @@ $userBasicId = '';
 						$pdfAgencyName  = $rowInfo['content_pdfagencyName'];
 				}//while
 
+/*
+
+note: nilipat ko sa send.php
 
 $mysqli->query("INSERT INTO tbl_endorsement(applicantId, clientId, jobPostingId, endorsementDate, endorsementStatus) VALUES ('$_SESSION[ses_AppID]','$clientID', '$_SESSION[endorsedJobId]', '$date', 'Active')");
 
@@ -119,6 +122,7 @@ $mysqli->query("INSERT INTO tbl_notification
 						'client'
 					)"
 				);
+*/
 
 require("fpdf.php");
 

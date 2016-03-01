@@ -75,13 +75,13 @@
 					<strong><h3>Developers</h3></strong>
 					<hr>
 						
-							<a href="developers.php?token=<?php echo $home; ?>" style="color: #c0c0c0;">View Developers</a>
+							<a href="<?php echo $index; ?>developers.php?token=<?php echo $home; ?>" style="color: #c0c0c0;">View Developers</a>
 			</div>
 			<div class="col-md-12">
 				
 				<br />
 				<p class="footerContent">
-					Developed by <a href="developers.php?token=<?php echo $home; ?>" style="color: #c0c0c0;">{#getchs;}</a>&trade; 2015
+					Developed by <a href="<?php echo $index; ?>developers.php?token=<?php echo $home; ?>" style="color: #c0c0c0;">{#getchs;}</a>&trade; 2015
 				</p>
 			
 			</div>

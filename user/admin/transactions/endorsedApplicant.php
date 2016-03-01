@@ -64,7 +64,7 @@
 						{
 							echo "<table class='table table-hover table-striped'>";	
 							echo "<tr>
-							<td>No Endorsed Applicant available.</td>
+							<td><strong>No Endorsed Applicant available.</strong></td>
 							</tr>";
 						}
 						else if ($rowCount>0)

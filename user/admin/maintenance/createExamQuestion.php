@@ -59,11 +59,6 @@ $(document).ready(function() {
 							</h3>
 						</li>
 					</ul>
-					<ul class="nav navbar-nav pull-right">
-						<li>
-							<a href="exam.php?token=<?php echo $main; ?>" style="margin-top:.2em;"><span class="glyphicon glyphicon-arrow-left"></span> Exam</a>
-						</li>
-					</ul>
 			  	</div>
 			</nav>
 

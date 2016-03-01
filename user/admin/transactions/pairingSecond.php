@@ -89,9 +89,6 @@
 			<li><a href="assessApplicant.php?token=<?php echo $tran; ?>">Assess Applicant</a></li>&nbsp;&nbsp;&nbsp;<span class="divider">&raquo;</span>&nbsp;&nbsp;&nbsp;
 			<li><?php echo "$firstName $middleName $lastName"; ?></li>&nbsp;&nbsp;&nbsp;<span class="divider">&raquo;</span>&nbsp;&nbsp;&nbsp;
 			<li class="active">Second Choice is <?php echo "$firstJob"; ?></li>
-			<ul class="pull-right">
-				<li><a href="assessApplicant.php?token=<?php echo $tran; ?>"><span class='glyphicon glyphicon-arrow-left'>&nbsp;</span>Assess Applicant</a></li>
-			</ul>
 		</ul>
 	</div>
 
@@ -166,6 +163,7 @@
 								$suggestJobId = $rowJobPosting['jobPostingId'];
 							}
 										echo "
+										<input type='hidden' name='appID' value= '$_SESSION[ses_AppID]'>
 										<input type='hidden' name='clientName' value= '$suggestClientName'>
 										<input type='hidden' name='appFname' value= '$firstName'>
 										<input type='hidden' name='appMname' value= '$middleName'>

@@ -14,10 +14,8 @@
 			<ul class="breadcrumb">
 				<li>Transactions</li>&nbsp;&nbsp;&nbsp;<span class="divider">&raquo;</span>&nbsp;&nbsp;&nbsp;
 				<li><a href="assessApplicant.php?token=<?php echo $tran; ?>">Assess Applicant</a></li>&nbsp;&nbsp;&nbsp;<span class="divider">&raquo;</span>&nbsp;&nbsp;&nbsp;
+				<li><a href='pairingFirst.php?token=<?php echo $tran; ?>&basicID=<?php echo $_POST["basicID"]; ?>'><?php echo $_POST['appFname']." ".$_POST['appMname']." ".$_POST['appLname'] ?></a></li>&nbsp;&nbsp;&nbsp;<span class="divider">&raquo;</span>&nbsp;&nbsp;&nbsp;
 				<li>Confirm Endorsement</li>&nbsp;&nbsp;&nbsp;
-					<ul class="pull-right">
-						<li><a href="assessApplicant.php?token=<?php echo $tran; ?>"><span class='glyphicon glyphicon-arrow-left'>&nbsp;</span>Assess Applicant</a></li>
-					</ul>
 				</ul>
 			</ul>
 		</div>
@@ -56,7 +54,7 @@
 									
 									$resultAppTaken = mysql_query("SELECT *
 												FROM tbl_applicant_exam
-												WHERE applicantId = $_POST[appID]
+												WHERE applicantId = $_SESSION[ses_AppID]
 												AND examId = $examID[$ctr]");
 												
 									while($rowAppTaken = mysql_fetch_array($resultAppTaken)) 

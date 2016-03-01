@@ -65,12 +65,6 @@ WHERE tbl_job_posting.jobPostingId = $jobID");
 			";
 			?>
 			<li class="active">Pairing Details</li>
-			<ul class="pull-right">
-			<?php
-			echo"
-				<li><a href='assessApplicant.php?token=$tran'><span class='glyphicon glyphicon-arrow-left'>&nbsp;</span>Assess Applicant</a></li>
-			";
-			?>
 			</ul>
 		</ul>
 	</div>

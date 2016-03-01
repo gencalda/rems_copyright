@@ -24,7 +24,7 @@
 			</div>
 			<div class="alert alert-danger col-md-6" style="margin-top:8em;">
 				<div class="col-md-3">
-					<img src="../../image/strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
+					<img src="../../image/Strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
 				</div>
 				
 				<div class="col-md-9">
@@ -42,7 +42,7 @@
 			
 			<div class="alert alert-default col-md-6" style="margin-top:8em;">
 				<div class="col-md-3">
-					<img src="../../image/strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
+					<img src="../../image/Strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
 				</div>
 				
 				<div class="col-md-9">
@@ -60,7 +60,7 @@
 			
 			<div class="alert alert-default col-md-6" style="margin-top:3em;">
 				<div class="col-md-3">
-					<img src="../../image/strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
+					<img src="../../image/Strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
 				</div>
 				
 				<div class="col-md-9">
@@ -77,7 +77,7 @@
 			
 			<div class="alert alert-success col-md-6" style="margin-top:3em;">
 				<div class="col-md-3">
-					<img src="../../image/strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
+					<img src="../../image/Strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
 				</div>
 				
 				<div class="col-md-9">
@@ -93,7 +93,7 @@
 			
 			<div class="alert alert-warning col-md-6" style="margin-top:3em;">
 				<div class="col-md-3">
-					<img src="../../image/strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
+					<img src="../../image/Strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
 				</div>
 				
 				<div class="col-md-9">
@@ -110,7 +110,7 @@
 			
 			<div class="alert alert-default col-md-6" style="margin-top:3em;">
 				<div class="col-md-3">
-					<img src="../../image/strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
+					<img src="../../image/Strauss.jpg" class="img-responsive img-circle" height="auto;" width="100%;" />
 				</div>
 				
 				<div class="col-md-9">

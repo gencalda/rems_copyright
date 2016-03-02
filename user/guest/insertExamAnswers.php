@@ -76,11 +76,7 @@ while ($row = mysql_fetch_array($result))
 				}
 				$percentscore=($score/$totalquest)*100;
 				
-				if($percentscore>$passing)
-				{
-					$examstat = "Passed";
-				}
-				else if($percentscore=$passing)
+				if($percentscore>=$passing)
 				{
 					$examstat = "Passed";
 				}
@@ -89,7 +85,7 @@ while ($row = mysql_fetch_array($result))
 					$examstat = "Failed";
 				}
 				
-					$mysqli->query("INSERT INTO tbl_applicant_exam
+				$insert_appExam =	$mysqli->query("INSERT INTO tbl_applicant_exam
 						(
 							applicantId,
 							examId,
@@ -106,7 +102,6 @@ while ($row = mysql_fetch_array($result))
 							'$examstat'							
 						)"
 				);
-				
 ?>
 
 		<div class="container-fluid">

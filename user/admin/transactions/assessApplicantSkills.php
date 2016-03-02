@@ -120,6 +120,8 @@
 						$examScore = array();
 						$examStatus = array();
 						$examhps = array();
+						$examPercentage = array();
+						$examPassing = array();
 						
 	
 						$con = mysql_connect("$db_hostname","$db_username","$db_password");
@@ -370,6 +372,8 @@
 							$examName[$ctr] = $row['examTitle'];
 							$examScore[$ctr] = $row['applicantExamScore'];
 							$examStatus[$ctr] = $row['examStatus'];
+							$examPassing[$ctr] =  $row['examPassingGrade'];
+				
 
 							$resultQuestions = mysql_query("SELECT COUNT(*)
 												FROM tbl_question
@@ -379,6 +383,10 @@
 
 							$examhps[$ctr] = $rowCount[0];
 
+							$examPercentage[$ctr] = ($examScore[$ctr]/$examhps[$ctr]) * 100;
+
+								
+									
 							$ctr++;
 						}
 						// --------------------------------------------------
@@ -1200,7 +1208,8 @@
 									if(isset($examName[$ctr]))
 									{
 										echo "<th>Exam Name</th>";
-										echo "<th>Score</th>";
+										echo "<th>&nbsp;&nbsp;&nbsp;&nbsp; Score&nbsp; </th>";
+										echo "<th>Passing Grade</th>";
 										echo "<th>Status</th>";
 									}
 									else
@@ -1208,12 +1217,13 @@
 										echo "<th>No Exam Result available.</th>";
 									}
 
-								while(isset($examName[$ctr]) &&($examScore[$ctr]!="")) 
+								while(isset($examName[$ctr]) &&($examName[$ctr]!="")) 
 								{
 									echo"
 									<tr>
 									<td>$examName[$ctr]</td>
-									<td>$examScore[$ctr] out of $examhps[$ctr]</td>
+									<td>$examScore[$ctr] out of $examhps[$ctr]  &nbsp; &nbsp;- &nbsp; &nbsp;$examPercentage[$ctr]%</td>
+									<td>$examPassing[$ctr]%</td>
 									<td>$examStatus[$ctr]</td>
 									</tr>
 									";

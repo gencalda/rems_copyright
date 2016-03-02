@@ -81,11 +81,10 @@
 							$examToBeTaken = mysql_num_rows($result);
 							
 				// check in database if this email exist
-				if ((mysql_num_rows($result) == 0) || ($examAppTaken==$examToBeTaken))
+				if ( ((mysql_num_rows($result) == 0) || ($examAppTaken==$examToBeTaken)) && ($appFailed==0) )
 				{
-			
 			?>
-		
+			
 					<div class="alert" id="login">
 					<div class="alert-info well-lg col-md-4 col-md-offset-3" style="margin-top:5em; text-align:center; padding:2em;">
 					<?php
@@ -129,19 +128,31 @@
 					</div>
 			<?php
 				}
-				else if (mysql_num_rows($result) > 0)
+				else if ((mysql_num_rows($result) > 0) && ($appFailed==0))
 				{
-			
+					
 					?>
 					<div class="alert" id="login">
 						<div class="alert-warning well-lg col-md-6 col-md-offset-3" style="margin-top:3em; text-align:center; padding:2em;">
 						<?php
-						if(mysql_num_rows($result) == 1) 
+
+						 $ctr =0;
+						 $count = 0;
+									while(isset($examCode[$ctr]) && ($examCode[$ctr]!=""))
+									{
+										if (!(in_array($examCode[$ctr], $examCodeAppTaken)))
+										{
+											$count++;
+										 }
+										 $ctr++;
+									}//while
+
+						if($count == 1) 
 						{
 						  echo"<strong>Wait! </strong> An exam must be taken by $_POST[appFname] $_POST[appMname] $_POST[appLname] before endorsing to <br />  $_POST[clientName] as $_POST[jobName]  <br /><br /> ";
 						  echo"Here is the exam code. <br /><strong> <br/> <br/>Exam Code</strong></p>";
 						 }
-						else 
+						else if($count > 1) 
 						{
 							 echo"<strong>Wait! </strong> Exams must be taken by $_POST[appFname] $_POST[appMname] $_POST[appLname] before endorsing to <br />  $_POST[clientName] as $_POST[jobName]  <br /><br /> ";
 							echo"Here are the exam code. <br /><strong> <br/> <br/>Exam Code</strong></p>";
@@ -166,11 +177,19 @@
 					</div>
 					<?php
 					
-					
-			
+				}
+				else if ($appFailed > 0)
+				{
+					echo '
+						<div class="alert" id="login">
+							<div class="alert-warning well-lg col-md-6 col-md-offset-3" style="margin-top:3em; text-align:center; padding:2em;">
+								<strong>Sorry! </strong> '.$_POST['appFname'].' '.$_POST['appMname'].' '.$_POST['appLname'].'cannot be endorsed to <br />'.$_POST['clientName'].' as '.$_POST['jobName'].' 
+								<strong> <br/> <br/>This applicant failed an exam for this job.</strong></p>
+							</div>
+						</div>
+					';
 				}
 				?>
-	
 	</div>
 	
 
@@ -178,4 +197,5 @@
 	$_SESSION['endorsedJobId'] = $_POST['jobID'];	
 	$_SESSION['endorsedBasicId'] = $_POST['basicID'];	
 	include ('../footer.php');
+
 ?>

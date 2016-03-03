@@ -40,15 +40,14 @@
 					//update tbl contract  - expired
 				$mysqli->query("UPDATE tbl_contract SET 
 					contractStatus = 'expired'
-				
-				WHERE DATE(`contractEndDate`) = DATE(NOW())");
+				WHERE DATE(`contractEndDate`) < DATE(NOW())");
 
 				
 					//update tbl contract  - start ng renewed
 				$mysqli->query("UPDATE tbl_contract SET 
 					contractStatus = 'on-going'
 				
-				WHERE DATE(`contractStartDate`) = DATE(NOW())");
+				WHERE DATE(`contractStartDate`) >= DATE(NOW())");
 
 				
 					
